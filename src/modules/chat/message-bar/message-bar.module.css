@@ -1,0 +1,34 @@
+.messageContainer {
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+
+.sendInput {
+    width: 90%;
+    height: 50px;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid lightgrey;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sendInput > svg {
+    padding: 0 15px;
+    color: lightgrey;
+}
+
+.sendInputText {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: black;
+    margin-left: 15px;
+}

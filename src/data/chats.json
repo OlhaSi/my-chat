@@ -1,0 +1,87 @@
+{
+  "chats": [{
+    "person": {
+      "id": 1,
+      "icon": "https://starwars-visualguide.com/assets/img/characters/5.jpg",
+      "name": "Josefina"
+    },
+    "messages": [{
+      "id": 1,
+      "message": "Hi! How are you?",
+      "timestamp": 1621947600000,
+      "type": "sent"
+    }]
+  },{
+    "person": {
+      "id": 2,
+      "icon": "https://starwars-visualguide.com/assets/img/characters/4.jpg",
+      "name": "Alice Kaufmann"
+    },
+    "messages": [{
+      "id": 2,
+      "message": "Do you have any ideas?",
+      "timestamp": 1627893000000,
+      "type": "received"
+    }]
+  },{
+    "person": {
+      "id": 3,
+      "icon": "https://starwars-visualguide.com/assets/img/characters/1.jpg",
+      "name": "Robert "
+    },
+    "messages": [{
+      "id": 3,
+      "message": "Nice to hear from you",
+      "timestamp": 1626764400000,
+      "type": "received"
+    }]
+  },{
+    "person": {
+      "id": 4,
+      "icon": "https://starwars-visualguide.com/assets/img/characters/2.jpg",
+      "name": "Fabian Mueller"
+    },
+    "messages": [{
+      "id": 4,
+      "message": "Hello!",
+      "timestamp": 1631787600000,
+      "type": "sent"
+    }]
+  },{
+    "person": {
+      "id": 5,
+      "icon": "https://starwars-visualguide.com/assets/img/characters/3.jpg",
+      "name": "Daniel"
+    },
+    "messages": [{
+      "id": 5,
+      "message": "How are you doing?",
+      "timestamp": 1631439600000,
+      "type": "received"
+    }]
+  },{
+    "person": {
+      "id": 6,
+      "icon": "https://starwars-visualguide.com/assets/img/characters/7.jpg",
+      "name": "Patricia Kaas"
+    },
+    "messages": [{
+      "id": 6,
+      "message": "Thanks for your help",
+      "timestamp": 1631373000000,
+      "type": "sent"
+    }]
+  },{
+    "person": {
+      "id": 7,
+      "icon": "https://starwars-visualguide.com/assets/img/characters/6.jpg",
+      "name": "Carlo Muratto"
+    },
+    "messages": [{
+      "id": 7,
+      "message": "See you tomorrow",
+      "timestamp": 1628683800000,
+      "type": "received"
+    }]
+  }]
+}

@@ -1,0 +1,14 @@
+.headerContainer {
+    display: flex;
+    flex: 2;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: whitesmoke;
+    border-bottom: 1px solid lightgrey;
+}
+
+.headerContainer > span {
+    font-size: 18px;
+    color: rgb(40, 44, 52);
+}

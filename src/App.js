@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
+import React, {useState} from "react";
+import LeftSide from "./modules/left-side/left-side";
+import Chat from "./modules/chat/chat";
+import ChatData from "./data/chats.json";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [chats, setChats] = useState(ChatData.chats);
+    const [activeChat, setActiveChat] = useState(ChatData.chats[0]);
+
+    return (
+        <div className={styles.App}>
+            <LeftSide chats={chats}/>
+            <Chat activeChat={activeChat} />
+        </div>
+    );
 }
 
 export default App;
