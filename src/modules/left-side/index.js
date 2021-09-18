@@ -1,3 +1,3 @@
-import LeftSide from './left-side';
+import LeftSide from "./left-side";
 
 export default LeftSide;
