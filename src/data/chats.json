@@ -1,87 +1,169 @@
 {
-  "chats": [{
-    "person": {
-      "id": 1,
-      "icon": "https://starwars-visualguide.com/assets/img/characters/5.jpg",
-      "name": "Josefina"
+  "chats": [
+    {
+      "person": {
+        "id": 1,
+        "icon": "/img/0.jpeg",
+        "name": "Josefina"
+      },
+      "messages": [
+        {
+          "id": 100,
+          "message": "Hi! How are you?",
+          "timestamp": 1621947600000,
+          "type": "received"
+        },
+        {
+          "id": 101,
+          "message": "Hi, I'm fine. Thanks. And you?",
+          "timestamp": 1621948200000,
+          "type": "sent"
+        },
+        {
+          "id": 102,
+          "message": "Me too",
+          "timestamp": 1621948800000,
+          "type": "received"
+        }
+      ]
     },
-    "messages": [{
-      "id": 1,
-      "message": "Hi! How are you?",
-      "timestamp": 1621947600000,
-      "type": "sent"
-    }]
-  },{
-    "person": {
-      "id": 2,
-      "icon": "https://starwars-visualguide.com/assets/img/characters/4.jpg",
-      "name": "Alice Kaufmann"
+    {
+      "person": {
+        "id": 2,
+        "icon": "/img/3.jpeg",
+        "name": "Alice Kaufmann"
+      },
+      "messages": [
+        {
+          "id": 200,
+          "message": "Do you have any ideas?",
+          "timestamp": 1627893000000,
+          "type": "received"
+        },
+        {
+          "id": 201,
+          "message": "I don't know",
+          "timestamp": 1627893000000,
+          "type": "sent"
+        },
+        {
+          "id": 202,
+          "message": "Ok. Let's speak another time",
+          "timestamp": 1627893000000,
+          "type": "received"
+        },
+        {
+          "id": 2,
+          "message": "Bye",
+          "timestamp": 1627893000000,
+          "type": "sent"
+        }
+      ]
     },
-    "messages": [{
-      "id": 2,
-      "message": "Do you have any ideas?",
-      "timestamp": 1627893000000,
-      "type": "received"
-    }]
-  },{
-    "person": {
-      "id": 3,
-      "icon": "https://starwars-visualguide.com/assets/img/characters/1.jpg",
-      "name": "Robert "
+    {
+      "person": {
+        "id": 3,
+        "icon": "/img/2.jpeg",
+        "name": "Robert "
+      },
+      "messages": [
+        {
+          "id": 300,
+          "message": "Hello",
+          "timestamp": 1626764400000,
+          "type": "received"
+        },
+        {
+          "id": 301,
+          "message": "Hi. Nice to hear from you",
+          "timestamp": 1626764400000,
+          "type": "sent"
+        },
+        {
+          "id": 302,
+          "message": "Do you have any plans for a weekend?",
+          "timestamp": 1626764400000,
+          "type": "received"
+        }
+      ]
     },
-    "messages": [{
-      "id": 3,
-      "message": "Nice to hear from you",
-      "timestamp": 1626764400000,
-      "type": "received"
-    }]
-  },{
-    "person": {
-      "id": 4,
-      "icon": "https://starwars-visualguide.com/assets/img/characters/2.jpg",
-      "name": "Fabian Mueller"
+    {
+      "person": {
+        "id": 4,
+        "icon": "/img/1.jpeg",
+        "name": "Fabian Mueller"
+      },
+      "messages": [
+        {
+          "id": 400,
+          "message": "Hello!",
+          "timestamp": 1631787600000,
+          "type": "received"
+        },
+        {
+          "id": 401,
+          "message": "Bye!",
+          "timestamp": 1631787600000,
+          "type": "sent"
+        }
+      ]
     },
-    "messages": [{
-      "id": 4,
-      "message": "Hello!",
-      "timestamp": 1631787600000,
-      "type": "sent"
-    }]
-  },{
-    "person": {
-      "id": 5,
-      "icon": "https://starwars-visualguide.com/assets/img/characters/3.jpg",
-      "name": "Daniel"
+    {
+      "person": {
+        "id": 5,
+        "icon": "/img/4.jpeg",
+        "name": "Daniel"
+      },
+      "messages": [
+        {
+          "id": 500,
+          "message": "Hi. How are you doing?",
+          "timestamp": 1631439600000,
+          "type": "sent"
+        },
+        {
+          "id": 501,
+          "message": "Nice, thanks",
+          "timestamp": 1631439600000,
+          "type": "received"
+        }
+      ]
     },
-    "messages": [{
-      "id": 5,
-      "message": "How are you doing?",
-      "timestamp": 1631439600000,
-      "type": "received"
-    }]
-  },{
-    "person": {
-      "id": 6,
-      "icon": "https://starwars-visualguide.com/assets/img/characters/7.jpg",
-      "name": "Patricia Kaas"
+    {
+      "person": {
+        "id": 6,
+        "icon": "/img/5.jpeg",
+        "name": "Patricia Kaas"
+      },
+      "messages": [
+        {
+          "id": 600,
+          "message": "Thanks for your help",
+          "timestamp": 1631373000000,
+          "type": "sent"
+        }
+      ]
     },
-    "messages": [{
-      "id": 6,
-      "message": "Thanks for your help",
-      "timestamp": 1631373000000,
-      "type": "sent"
-    }]
-  },{
-    "person": {
-      "id": 7,
-      "icon": "https://starwars-visualguide.com/assets/img/characters/6.jpg",
-      "name": "Carlo Muratto"
-    },
-    "messages": [{
-      "id": 7,
-      "message": "See you tomorrow",
-      "timestamp": 1628683800000,
-      "type": "received"
-    }]
-  }]
+    {
+      "person": {
+        "id": 7,
+        "icon": "/img/6.jpeg",
+        "name": "Carlo Muratto"
+      },
+      "messages": [
+        {
+          "id": 700,
+          "message": "See you tomorrow",
+          "timestamp": 1628683800000,
+          "type": "received"
+        },
+        {
+          "id": 701,
+          "message": "Bye. Have a nice day!",
+          "timestamp": 1628683800000,
+          "type": "sent"
+        }
+      ]
+    }
+  ]
 }

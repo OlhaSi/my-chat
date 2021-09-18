@@ -7,7 +7,7 @@ import {FaUserCircle} from "react-icons/fa";
 const SearchBar = () => {
     const [query, setQuery] = useState('');
 
-    const getPersons = async (text) => {
+    const getPersons = (value) => {
 
 
     }
