@@ -1,12 +1,12 @@
 .container {
-    text-align: center;
-    display: flex;
-    flex: 70%;
-    flex-direction: column;
-    align-content: stretch;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    background-color: whitesmoke;
-    background-size: cover;
-    border-right: 1px solid lightgrey;
+  text-align: center;
+  display: flex;
+  flex: 70%;
+  flex-direction: column;
+  align-content: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  background-color: whitesmoke;
+  background-size: cover;
+  border-right: 1px solid lightgrey;
 }

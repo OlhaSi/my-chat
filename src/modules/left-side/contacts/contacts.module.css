@@ -1,43 +1,53 @@
 .contactsContainer {
-    display: flex;
-    flex: 5;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: white;
+  display: flex;
+  flex: 5;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: white;
 }
 
 .contactsContainer > p {
-    font-size: 20px;
-    color: dodgerblue;
-    padding-left: 20px;
+  font-size: 20px;
+  color: dodgerblue;
+  padding-left: 20px;
 }
 
 .messageContainer {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid lightgrey;
-    font-size: 15px;
-    color: rgb(61, 69, 79);
-    min-height: 65px;
-    align-items: center;
-    padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgrey;
+  font-size: 15px;
+  color: rgb(61, 69, 79);
+  min-height: 65px;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.messageContainer:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+}
+
+.messageContainerActive,
+.messageContainerActive:hover {
+  background-color: lightgrey;
 }
 
 .contentWrapper {
-    display: flex;
+  display: flex;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .message {
-    color: lightslategray;
+  color: lightslategray;
 }
 
 .date {
-    font-size: 12px;
-    padding: 0 20px 20px;
+  font-size: 12px;
+  padding: 0 20px 20px;
 }

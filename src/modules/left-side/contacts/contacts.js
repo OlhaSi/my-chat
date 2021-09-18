@@ -1,39 +1,59 @@
-import React from 'react';
-import styles from "./contacts.module.css"
+import React, { useCallback } from "react";
+import styles from "./contacts.module.css";
 import Avatar from "../../../components/avatar/avatar";
 
-
 const formatTime = (msec) => {
-    const date = new Date(msec);
-    return date.toDateString();
-}
+  const date = new Date(msec);
+  return date.toDateString();
+};
 
-const Contacts = ({chats}) => {
-    return (
-        <div className={styles.contactsContainer}>
-            <p>Chats</p>
-            {chats.map(({person, messages}) => {
-                    return <div key={person.id} className={styles.messageContainer}>
-                        <div className={styles.contentWrapper}>
+const Contacts = ({ chats, activeChat, setActiveChat }) => {
+  const handleClick = useCallback(
+    (chat) => {
+      setActiveChat(chat);
+    },
+    [setActiveChat]
+  );
 
-                            <Avatar src={person.icon}/>
-                            <div className={styles.content}>
-                                <div>{person.name}</div>
-                                {messages.length > 0 &&
-                                <div className={styles.message}>
-                                    {messages[messages.length - 1].message}
-                                </div>}
-                            </div>
-                        </div>
+  return (
+    <div className={styles.contactsContainer}>
+      <p>Chats</p>
+      {chats.map((chat) => {
+        const { person, messages } = chat;
 
-                        {messages.length > 0 && <div className={styles.date}>
-                            {formatTime(messages[messages.length - 1].timestamp)}</div>}
-                    </div>
-                }
+        let className = styles.messageContainer;
+        if (person.id === activeChat.person.id) {
+          className += " " + styles.messageContainerActive;
+        }
+
+        return (
+          <div
+            key={person.id}
+            className={className}
+            onClick={handleClick.bind({}, chat)}
+          >
+            <div className={styles.contentWrapper}>
+              <Avatar src={person.icon} />
+              <div className={styles.content}>
+                <div>{person.name}</div>
+                {messages.length > 0 && (
+                  <div className={styles.message}>
+                    {messages[messages.length - 1].message}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {messages.length > 0 && (
+              <div className={styles.date}>
+                {formatTime(messages[messages.length - 1].timestamp)}
+              </div>
             )}
-        </div>
-
-    )
-}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default Contacts;
