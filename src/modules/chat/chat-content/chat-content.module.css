@@ -2,11 +2,58 @@
     display: flex;
     flex: 17;
     flex-direction: column;
-    align-items: stretch;
-    align-content: stretch;
     justify-content: flex-start;
     background-color: #fafafa;
-    font-size: 20px;
-    color: black;
     border-bottom: 1px solid lightgrey;
+    padding-top: 30px;
+}
+
+.receivedWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 15px;
+}
+
+.sentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.messageDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.textReceived {
+    background-color: #30354f;
+    border-radius: 20px;
+    color: white;
+    padding: 12px;
+}
+
+.textSent {
+    background-color: lightgrey;
+    color: rgb(40, 44, 52);
+    border-radius: 20px;
+    padding: 12px;
+}
+
+.timeReceived {
+    margin: 5px 0 0 100px;
+    font-size: 14px;
+    color: grey;
+}
+
+.timeSent {
+    margin: 5px 10px;
+    font-size: 14px;
+    color: grey;
 }

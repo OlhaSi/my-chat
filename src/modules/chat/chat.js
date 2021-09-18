@@ -9,7 +9,8 @@ const Chat = ({activeChat}) => {
     return (
         <div className={styles.container}>
             <Header person={activeChat.person}/>
-            <ChatContent activeChat={activeChat}/>
+            <ChatContent
+                activeChat={activeChat}/>
             <MessageBar/>
         </div>
     )

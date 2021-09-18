@@ -13,7 +13,7 @@ const Contacts = ({chats}) => {
         <div className={styles.contactsContainer}>
             <p>Chats</p>
             {chats.map(({person, messages}) => {
-                    return <div className={styles.messageContainer}>
+                    return <div key={person.id} className={styles.messageContainer}>
                         <div className={styles.contentWrapper}>
 
                             <Avatar src={person.icon}/>
@@ -26,7 +26,8 @@ const Contacts = ({chats}) => {
                             </div>
                         </div>
 
-                        {messages.length > 0 && <div className={styles.date}>{formatTime(messages[messages.length - 1].timestamp)}</div>}
+                        {messages.length > 0 && <div className={styles.date}>
+                            {formatTime(messages[messages.length - 1].timestamp)}</div>}
                     </div>
                 }
             )}
