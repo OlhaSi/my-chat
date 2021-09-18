@@ -21,7 +21,16 @@
   min-height: 65px;
   align-items: center;
   padding: 10px 0;
+}
+
+.messageContainer:hover {
   cursor: pointer;
+  background-color: whitesmoke;
+}
+
+.messageContainerActive,
+.messageContainerActive:hover {
+  background-color: lightgrey;
 }
 
 .contentWrapper {

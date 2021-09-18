@@ -4,7 +4,7 @@ import styles from "./left-side.module.css";
 import SearchBar from "./search-bar/search-bar";
 import Contacts from "./contacts/contacts";
 
-const LeftSide = ({ chats, setActiveChat }) => {
+const LeftSide = ({ chats, activeChat, setActiveChat }) => {
   const [filteredList, setFilteredList] = useState(chats);
   const onFilter = useCallback(
     (query) => {
@@ -30,7 +30,11 @@ const LeftSide = ({ chats, setActiveChat }) => {
   return (
     <div className={styles.containerLeftSide}>
       <SearchBar onFilter={onFilter} />
-      <Contacts chats={filteredList} setActiveChat={setActiveChat} />
+      <Contacts
+        chats={filteredList}
+        activeChat={activeChat}
+        setActiveChat={setActiveChat}
+      />
     </div>
   );
 };
