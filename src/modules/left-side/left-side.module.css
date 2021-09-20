@@ -1,6 +1,5 @@
 .containerLeftSide {
   display: flex;
-  /*flex: 30%;*/
   flex-direction: column;
   justify-content: space-around;
   background-color: white;

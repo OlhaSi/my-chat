@@ -37,19 +37,26 @@
 
 .contentWrapper {
     display: flex;
+    overflow: hidden;
+    max-width: 450px;
 }
 
 .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
 }
 
 .message {
     color: lightslategray;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .date {
     font-size: 12px;
     padding: 0 20px 20px;
+    min-width: 100px;
 }
