@@ -1,10 +1,13 @@
 .containerLeftSide {
   display: flex;
-  flex: 30%;
+  /*flex: 30%;*/
   flex-direction: column;
   justify-content: space-around;
   background-color: white;
   background-size: cover;
   font-size: 40px;
   border-right: 1px solid lightgrey;
+  max-width: 525px;
+  height: 100%;
+  overflow: auto;
 }
