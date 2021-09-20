@@ -21,7 +21,7 @@ const MessageBar = ({ addNewSendMessage, activeChat }) => {
     addNewSendMessage(input.current.value, "sent", activeChat.person.id);
     input.current.value = "";
     getJokes(activeChat.person.id);
-  }, []);
+  }, [activeChat, input]);
 
   const onClick = useCallback(() => {
     if (input.current.value !== "") {

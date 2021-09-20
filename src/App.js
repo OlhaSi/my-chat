@@ -34,7 +34,7 @@ const App = () => {
     onChatsUpdate(chats);
   }, [chats, onChatsUpdate]);
 
-  const addNewSendMessage = useCallback(
+  const addNewMessage = useCallback(
     (msg, msgType, personID) => {
       const newChats = [];
 
@@ -62,34 +62,6 @@ const App = () => {
     [activeChat.person.id, chats, onChatsUpdate]
   );
 
-  const addNewReceivedMessage = useCallback(
-    (msg) => {
-      const newChats = [];
-
-      chats.forEach(async (chatData) => {
-        if (chatData.person.id === activeChat.person.id) {
-          const timestamp = +new Date();
-          newChats.push({
-            ...chatData,
-            messages: [
-              ...chatData.messages,
-              {
-                id: timestamp,
-                message: msg,
-                timestamp,
-                type: "received",
-              },
-            ],
-          });
-        } else {
-          newChats.push(chatData);
-        }
-      });
-      onChatsUpdate(newChats);
-    },
-    [activeChat.person.id, chats, onChatsUpdate]
-  );
-
   return (
     <div className={styles.App}>
       <LeftSide
@@ -97,11 +69,7 @@ const App = () => {
         activeChat={activeChat}
         setActiveChat={setActiveChat}
       />
-      <Chat
-        activeChat={activeChat}
-        addNewSendMessage={addNewSendMessage}
-        addNewReceivedMessage={addNewReceivedMessage}
-      />
+      <Chat activeChat={activeChat} addNewSendMessage={addNewMessage} />
     </div>
   );
 };
