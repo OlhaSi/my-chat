@@ -43,19 +43,19 @@
         {
           "id": 201,
           "message": "I don't know",
-          "timestamp": 1627893000000,
+          "timestamp": 1627893300000,
           "type": "sent"
         },
         {
           "id": 202,
           "message": "Ok. Let's speak another time",
-          "timestamp": 1627893000000,
+          "timestamp": 1627893900000,
           "type": "received"
         },
         {
           "id": 2,
           "message": "Bye",
-          "timestamp": 1627893000000,
+          "timestamp": 1627894080000,
           "type": "sent"
         }
       ]
@@ -76,13 +76,13 @@
         {
           "id": 301,
           "message": "Hi. Nice to hear from you",
-          "timestamp": 1626764400000,
+          "timestamp": 1626768000000,
           "type": "sent"
         },
         {
           "id": 302,
           "message": "Do you have any plans for a weekend?",
-          "timestamp": 1626764400000,
+          "timestamp": 1626768600000,
           "type": "received"
         }
       ]
@@ -103,7 +103,7 @@
         {
           "id": 401,
           "message": "Bye!",
-          "timestamp": 1631787600000,
+          "timestamp": 1631788800000,
           "type": "sent"
         }
       ]
@@ -124,7 +124,7 @@
         {
           "id": 501,
           "message": "Nice, thanks",
-          "timestamp": 1631439600000,
+          "timestamp": 1631443200000,
           "type": "received"
         }
       ]
@@ -160,7 +160,7 @@
         {
           "id": 701,
           "message": "Bye. Have a nice day!",
-          "timestamp": 1628683800000,
+          "timestamp": 1628684100000,
           "type": "sent"
         }
       ]
