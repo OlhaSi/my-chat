@@ -1,11 +1,10 @@
 .container {
   text-align: center;
   display: flex;
-  flex: 70%;
   flex-direction: column;
-  align-content: stretch;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
   background-color: whitesmoke;
   background-size: cover;
   border-right: 1px solid lightgrey;

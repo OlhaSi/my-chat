@@ -6,6 +6,8 @@
   background-color: #fafafa;
   border-bottom: 1px solid lightgrey;
   padding-top: 30px;
+  max-height: calc(100% - 60px);
+  overflow: auto;
 }
 
 .receivedWrapper {
