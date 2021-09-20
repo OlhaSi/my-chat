@@ -21,12 +21,48 @@ const App = () => {
   const [chats, setChats] = useState(localChats || ChatData.chats);
   const [activeChat, setActiveChat] = useState(chats[0]);
 
-  useEffect(() => {
-    const sortResults = chatsSort(chats);
+  const onChatsUpdate = useCallback((newChats) => {
+    const sortResults = chatsSort(newChats);
     localStorage.setItem(STORAGE_ID, JSON.stringify(sortResults));
     setChats(sortResults);
     setActiveChat(sortResults[0]);
+
+    console.log("----onChatsUpdate----", sortResults);
   }, []);
+
+  useEffect(() => {
+    onChatsUpdate(chats);
+  }, [chats, onChatsUpdate]);
+
+  const addNewSendMessage = useCallback(
+    (msg) => {
+      const newChats = [];
+
+      chats.forEach(function (chatData) {
+        if (chatData.person.id === activeChat.person.id) {
+          const timestamp = +new Date();
+          newChats.push({
+            ...chatData,
+            messages: [
+              ...chatData.messages,
+              {
+                id: timestamp,
+                message: msg,
+                timestamp,
+                type: "send",
+              },
+            ],
+          });
+        } else {
+          newChats.push(chatData);
+        }
+      });
+      onChatsUpdate(newChats);
+    },
+    [activeChat.person.id, chats, onChatsUpdate]
+  );
+
+  const addNewReceivedMessage = useCallback((msg, personID) => {});
 
   return (
     <div className={styles.App}>
@@ -35,7 +71,7 @@ const App = () => {
         activeChat={activeChat}
         setActiveChat={setActiveChat}
       />
-      <Chat activeChat={activeChat} />
+      <Chat activeChat={activeChat} addNewSendMessage={addNewSendMessage} />
     </div>
   );
 };
