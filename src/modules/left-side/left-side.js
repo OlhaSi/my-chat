@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "./left-side.module.css";
 
 import SearchBar from "./search-bar/search-bar";
@@ -6,6 +6,11 @@ import Contacts from "./contacts/contacts";
 
 const LeftSide = ({ chats, activeChat, setActiveChat }) => {
   const [filteredList, setFilteredList] = useState(chats);
+
+  useEffect(() => {
+    setFilteredList(chats);
+  }, [chats]);
+
   const onFilter = useCallback(
     (query) => {
       if (query === "") {
