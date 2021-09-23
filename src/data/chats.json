@@ -3,7 +3,7 @@
     {
       "person": {
         "id": 1,
-        "icon": "/img/0.jpeg",
+        "icon": "https://olhasi.github.io/my-chat/img/0.jpeg",
         "name": "Josefina"
       },
       "messages": [
@@ -30,7 +30,7 @@
     {
       "person": {
         "id": 2,
-        "icon": "/img/3.jpeg",
+        "icon": "https://olhasi.github.io/my-chat/img/3.jpeg",
         "name": "Alice Kaufmann"
       },
       "messages": [
@@ -63,7 +63,7 @@
     {
       "person": {
         "id": 3,
-        "icon": "/img/2.jpeg",
+        "icon": "https://olhasi.github.io/my-chat/img/2.jpeg",
         "name": "Robert "
       },
       "messages": [
@@ -90,7 +90,7 @@
     {
       "person": {
         "id": 4,
-        "icon": "/img/1.jpeg",
+        "icon": "https://olhasi.github.io/my-chat/img/1.jpeg",
         "name": "Fabian Mueller"
       },
       "messages": [
@@ -111,7 +111,7 @@
     {
       "person": {
         "id": 5,
-        "icon": "/img/4.jpeg",
+        "icon": "https://olhasi.github.io/my-chat/img/4.jpeg",
         "name": "Daniel"
       },
       "messages": [
@@ -132,7 +132,7 @@
     {
       "person": {
         "id": 6,
-        "icon": "/img/5.jpeg",
+        "icon": "https://olhasi.github.io/my-chat/img/5.jpeg",
         "name": "Patricia Kaas"
       },
       "messages": [
@@ -147,7 +147,7 @@
     {
       "person": {
         "id": 7,
-        "icon": "/img/6.jpeg",
+        "icon": "https://olhasi.github.io/my-chat/img/6.jpeg",
         "name": "Carlo Muratto"
       },
       "messages": [

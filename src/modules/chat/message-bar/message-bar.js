@@ -1,26 +1,52 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./message-bar.module.css";
 
 import { MdSend } from "react-icons/md";
+import { getRandomJoke } from "../../../services/mc-service";
 
-const MessageBar = ({ addNewSendMessage }) => {
+const MessageBar = ({ addNewMessage, activeChat }) => {
   const input = useRef(null);
+  const [joke, setJoke] = useState({});
+
+  useEffect(() => {
+    addNewMessage(joke.joke, "received", joke.pId);
+  }, [joke]);
+
+  const getJokes = useCallback(
+    (pId) =>
+      setTimeout(() => {
+        getRandomJoke()
+          .then((r) => r.json())
+          .then((resp) => {
+            setJoke({ pId, joke: resp.value });
+          });
+      }, 5000),
+    []
+  );
+
+  useEffect(() => {
+    input.current.value = "";
+  }, [activeChat.person.id]);
+
+  const addMsgHandler = useCallback(() => {
+    addNewMessage(input.current.value, "sent", activeChat.person.id);
+    input.current.value = "";
+    getJokes(activeChat.person.id);
+  }, [activeChat.person.id, addNewMessage, getJokes]);
 
   const onClick = useCallback(() => {
     if (input.current.value !== "") {
-      addNewSendMessage(input.current.value, "sent");
-      input.current.value = "";
+      addMsgHandler();
     }
-  }, [addNewSendMessage, input]);
+  }, [addMsgHandler]);
 
   const onKeyDown = useCallback(
     (e) => {
       if (input.current.value !== "" && e.key === "Enter") {
-        addNewSendMessage(input.current.value);
-        input.current.value = "";
+        addMsgHandler();
       }
     },
-    [addNewSendMessage, input]
+    [addMsgHandler]
   );
 
   return (

@@ -1,9 +1,11 @@
-import styles from "./App.module.css";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import LeftSide from "./modules/left-side/left-side";
 import Chat from "./modules/chat/chat";
 import ChatData from "./data/chats.json";
 
+import styles from "./App.module.css";
+
+// sort chats by last message on the left side
 const chatsSort = (chats) => {
   return chats.sort((a, b) => {
     return (
@@ -13,65 +15,73 @@ const chatsSort = (chats) => {
   });
 };
 
+// save data to local storage
 const STORAGE_ID = "local-chats";
 const localChatsString = localStorage.getItem(STORAGE_ID);
 const localChats = localChatsString ? JSON.parse(localChatsString) : undefined;
 
 const App = () => {
-  const [chats, setChats] = useState(localChats || ChatData.chats);
-  const [activeChat, setActiveChat] = useState(chats[0]);
+  // initially first time data comes from chats.json
+  // and after every next page reload from local storage
+  const [chatsArray, setChatsArray] = useState(localChats || ChatData.chats);
+  // every time we reload the page the very first chat will be active
+  const [activeChat, setActiveChat] = useState(chatsArray[0]);
 
-  const onChatsUpdate = useCallback((newChats) => {
-    const sortResults = chatsSort(newChats);
-    localStorage.setItem(STORAGE_ID, JSON.stringify(sortResults));
-    setChats(sortResults);
-    setActiveChat(sortResults[0]);
+  // function for updating state with new message
+  const onChatsUpdate = useCallback(
+    (updatedChats) => {
+      const sortResults = chatsSort(updatedChats);
+      // updating local storage with new sorting result
+      localStorage.setItem(STORAGE_ID, JSON.stringify(sortResults));
+      // updating state with new sorted chats
+      setChatsArray(sortResults);
 
-    console.log("----onChatsUpdate----", sortResults);
-  }, []);
-
-  useEffect(() => {
-    onChatsUpdate(chats);
-  }, [chats, onChatsUpdate]);
-
-  const addNewSendMessage = useCallback(
-    (msg) => {
-      const newChats = [];
-
-      chats.forEach(function (chatData) {
-        if (chatData.person.id === activeChat.person.id) {
-          const timestamp = +new Date();
-          newChats.push({
-            ...chatData,
-            messages: [
-              ...chatData.messages,
-              {
-                id: timestamp,
-                message: msg,
-                timestamp,
-                type: "send",
-              },
-            ],
-          });
-        } else {
-          newChats.push(chatData);
-        }
-      });
-      onChatsUpdate(newChats);
+      // find active chat on the right side
+      const nextActiveChat = updatedChats.find(
+        (chat) => chat.person.id === activeChat.person.id
+      );
+      // update chat messages for currently active chat (show last added message)
+      setActiveChat(nextActiveChat);
     },
-    [activeChat.person.id, chats, onChatsUpdate]
+    [activeChat.person.id]
   );
 
-  const addNewReceivedMessage = useCallback((msg, personID) => {});
+  // both for received and sent messages
+  const addNewMessage = useCallback(
+    (msg, msgType, personID) => {
+      const updatedChats = [];
+
+      // iterate over all chats
+      chatsArray.forEach((chatData) => {
+        // find the person who get or send a new message
+        if (chatData.person.id === personID) {
+          const timestamp = +new Date();
+
+          const newMessage = {
+            id: timestamp,
+            message: msg,
+            timestamp,
+            type: msgType,
+          };
+          // add new message to messages array of chatsArray
+          chatData.messages.push(newMessage);
+        }
+        // add new data to updatedChats
+        updatedChats.push(chatData);
+      });
+      onChatsUpdate(updatedChats);
+    },
+    [chatsArray, onChatsUpdate]
+  );
 
   return (
     <div className={styles.App}>
       <LeftSide
-        chats={chats}
+        chatsArray={chatsArray}
         activeChat={activeChat}
         setActiveChat={setActiveChat}
       />
-      <Chat activeChat={activeChat} addNewSendMessage={addNewSendMessage} />
+      <Chat activeChat={activeChat} addNewMessage={addNewMessage} />
     </div>
   );
 };

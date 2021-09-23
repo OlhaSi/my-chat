@@ -4,12 +4,12 @@ import Header from "./header/header";
 import ChatContent from "./chat-content/chat-content";
 import MessageBar from "./message-bar/message-bar";
 
-const Chat = ({ activeChat, addNewSendMessage }) => {
+const Chat = ({ activeChat, addNewMessage }) => {
   return (
     <div className={styles.container}>
       <Header person={activeChat.person} />
-      <ChatContent activeChat={activeChat} />
-      <MessageBar addNewSendMessage={addNewSendMessage} />
+      <ChatContent activeChat={activeChat} addNewMessage={addNewMessage} />
+      <MessageBar activeChat={activeChat} addNewMessage={addNewMessage} />
     </div>
   );
 };

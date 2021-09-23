@@ -1,6 +1,7 @@
 {
   "name": "my-chat",
   "version": "0.1.0",
+  "homepage": "https://olhasi.github.io/my-chat/",
   "private": true,
   "scripts": {
     "start": "react-scripts start",

@@ -4,24 +4,25 @@ import styles from "./left-side.module.css";
 import SearchBar from "./search-bar/search-bar";
 import Contacts from "./contacts/contacts";
 
-const LeftSide = ({ chats, activeChat, setActiveChat }) => {
-  const [filteredList, setFilteredList] = useState(chats);
+const LeftSide = ({ chatsArray, activeChat, setActiveChat }) => {
+  // initially show full list of chats on left side
+  const [filteredList, setFilteredList] = useState(chatsArray);
 
   useEffect(() => {
-    setFilteredList(chats);
-  }, [chats]);
+    setFilteredList(chatsArray);
+  }, [chatsArray]);
 
   const onFilter = useCallback(
-    (query) => {
-      if (query === "") {
-        setFilteredList(chats);
+    (searchInputValue) => {
+      if (searchInputValue === "") {
+        setFilteredList(chatsArray);
       } else {
         const filtered = [];
-        chats.forEach((chat) => {
-          const {
-            person: { name },
-          } = chat;
-          if (name.toLowerCase().includes(query.toLowerCase())) {
+        // chat is an object with two properties: person and messages
+        chatsArray.forEach((chat) => {
+          // get persons by name
+          const name = chat.person.name;
+          if (name.toLowerCase().includes(searchInputValue.toLowerCase())) {
             filtered.push(chat);
           }
         });
@@ -29,14 +30,14 @@ const LeftSide = ({ chats, activeChat, setActiveChat }) => {
         setFilteredList(filtered);
       }
     },
-    [chats]
+    [chatsArray]
   );
 
   return (
     <div className={styles.containerLeftSide}>
       <SearchBar onFilter={onFilter} />
       <Contacts
-        chats={filteredList}
+        chatsArray={filteredList}
         activeChat={activeChat}
         setActiveChat={setActiveChat}
       />
