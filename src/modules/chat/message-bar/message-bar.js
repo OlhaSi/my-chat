@@ -1,45 +1,52 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./message-bar.module.css";
 
 import { MdSend } from "react-icons/md";
 import { getRandomJoke } from "../../../services/mc-service";
 
-const MessageBar = ({ addNewSendMessage, activeChat }) => {
+const MessageBar = ({ addNewMessage, activeChat }) => {
   const input = useRef(null);
-  let getJokes = (pId) =>
-    setTimeout(() => {
-      getRandomJoke()
-        .then((r) => r.json())
-        .then((resp) => {
-          console.log("----getRandomJoke----", pId);
-          addNewSendMessage(resp.value, "received", pId);
-        });
-    }, 2000);
+  const [joke, setJoke] = useState({});
+
+  useEffect(() => {
+    addNewMessage(joke.joke, "received", joke.pId);
+  }, [joke]);
+
+  const getJokes = useCallback(
+    (pId) =>
+      setTimeout(() => {
+        getRandomJoke()
+          .then((r) => r.json())
+          .then((resp) => {
+            setJoke({ pId, joke: resp.value });
+          });
+      }, 5000),
+    []
+  );
+
+  useEffect(() => {
+    input.current.value = "";
+  }, [activeChat.person.id]);
 
   const addMsgHandler = useCallback(() => {
-    console.log("----sent----", activeChat.person.id);
-    addNewSendMessage(input.current.value, "sent", activeChat.person.id);
+    addNewMessage(input.current.value, "sent", activeChat.person.id);
     input.current.value = "";
     getJokes(activeChat.person.id);
-  }, [activeChat, input]);
+  }, [activeChat.person.id, addNewMessage, getJokes]);
 
   const onClick = useCallback(() => {
     if (input.current.value !== "") {
       addMsgHandler();
-      // addNewSendMessage(input.current.value, "sent", activeChat.person.id);
-      // input.current.value = "";
     }
-  }, [addNewSendMessage, input]);
+  }, [addMsgHandler]);
 
   const onKeyDown = useCallback(
     (e) => {
       if (input.current.value !== "" && e.key === "Enter") {
         addMsgHandler();
-        // addNewSendMessage(input.current.value, "sent", activeChat.person.id);
-        // input.current.value = "";
       }
     },
-    [addNewSendMessage, input]
+    [addMsgHandler]
   );
 
   return (
