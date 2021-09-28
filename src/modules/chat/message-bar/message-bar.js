@@ -6,11 +6,11 @@ import { getRandomJoke } from "../../../services/mc-service";
 
 const MessageBar = ({ addNewMessage, activeChat }) => {
   const input = useRef(null);
-  const [joke, setJoke] = useState({});
+  const [jokeObj, setJokeObj] = useState({});
 
   useEffect(() => {
-    addNewMessage(joke.joke, "received", joke.pId);
-  }, [joke]);
+    addNewMessage(jokeObj.joke, "received", jokeObj.pId);
+  }, [jokeObj]);
 
   const getJokes = useCallback(
     (pId) =>
@@ -18,28 +18,33 @@ const MessageBar = ({ addNewMessage, activeChat }) => {
         getRandomJoke()
           .then((r) => r.json())
           .then((resp) => {
-            setJoke({ pId, joke: resp.value });
+            setJokeObj({ pId, joke: resp.value });
           });
       }, 5000),
     []
   );
 
+  // every time we change the active person an input field will be clear
   useEffect(() => {
     input.current.value = "";
   }, [activeChat.person.id]);
 
   const addMsgHandler = useCallback(() => {
     addNewMessage(input.current.value, "sent", activeChat.person.id);
+    // make an input clear
     input.current.value = "";
+    // waiting for a new joke
     getJokes(activeChat.person.id);
   }, [activeChat.person.id, addNewMessage, getJokes]);
 
+  // click on icon
   const onClick = useCallback(() => {
     if (input.current.value !== "") {
       addMsgHandler();
     }
   }, [addMsgHandler]);
 
+  // press Enter
   const onKeyDown = useCallback(
     (e) => {
       if (input.current.value !== "" && e.key === "Enter") {
